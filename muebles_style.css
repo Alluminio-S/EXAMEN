@@ -1,0 +1,13 @@
+.main-slider{
+    background-color:cornflowerblue, cornsilk,crimson;
+
+}
+.img-center{
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.text-slider{
+    color: #434343
+}

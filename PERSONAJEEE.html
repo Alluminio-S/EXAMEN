@@ -1,0 +1,223 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHOOSE YOUR CHARACTER</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
+      background-image: url('img/fondo.jpg'); /* ← pon aquí tu ilustración */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1.title {
+      color: #ffffff;
+      text-shadow: 0 0 15px #170953;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+
+    /* GRID DE PERSONAJES */
+    .character {
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .character img {
+      border-radius: 10px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      width: 100%;
+    }
+
+    /* EFECTO ILUMINADO AL PASAR */
+    .character:hover {
+      border-color: #eed00c;
+      box-shadow: 0 0 15px #eed00c, inset 0 0 10px #eed00c;
+      transform: translateY(-5px);
+    }
+
+    /* IMAGEN NORMAL Y HOVER */
+    .character img.hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .character:hover img.hover {
+      opacity: 1;
+    }
+
+    /* SELECCIONADO */
+    .character.selected {
+      border-color: #fbf893;
+      box-shadow: 0 0 20px #fbf893, inset 0 0 10px #fbf893;
+      background-color: rgba(27, 119, 239, 0.695);
+    }
+
+    .card-content {
+      padding: 0.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-weight: 600;
+      color: #ddd;
+    }
+
+    /* DETALLE DEL PERSONAJE */
+    #characterDetail {
+      background: rgba(5, 217, 224, 0.471);
+      border: 2px solid #30f7f4;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    figure.image {
+      margin-bottom: 2rem;
+    }
+
+    #charImage {
+      border-radius: 10px;
+      border: 3px solid #522bdf;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(184, 43, 223, 0.6);
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    #charLore {
+      margin-top: auto; /* mueve la descripción hacia abajo */
+      padding-bottom: 1rem;
+      font-size: 1.1rem;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <h1 class="title has-text-centered">CHOOSE YOUR CHARACTER</h1>
+
+    <div class="columns">
+      <!-- GRID DE PERSONAJES -->
+      <div class="column is-half">
+        <div class="columns is-multiline" id="characterGrid">
+          <!-- Se genera dinámicamente -->
+        </div>
+      </div>
+
+      <!-- DETALLE DEL PERSONAJE -->
+      <div class="column is-half">
+        <div id="characterDetail" class="box has-text-centered">
+          <h2 id="charName" class="title is-4">Nombre del personaje</h2>
+          <figure class="image is-inline-block mb-4">
+            <img id="charImage" src="img/default.png" alt="Personaje">
+          </figure>
+          <p id="charLore" class="mt-4">Descripción o lore del personaje.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const characters = [
+      {
+        name: "Bulbasaur",
+        image: "img/poke1.jpg",
+        hover: "img/poke1.jpg",
+        lore: "Lleva una semilla en el lomo que crece con él. Absorbe energía de la luz solar."
+      },
+      {
+        name: "Squirtle",
+        image: "img/poke2.jpg",
+        hover: "img/poke2.jpg",
+        lore: "Vamo a calmarno'"
+      },
+      {
+        name: "Butterfree",
+        image: "img/poke3.jpg",
+        hover: "img/poke3.jpg",
+        lore: "Ama el néctar de las flores y puede localizar prados floridos a kilómetros de distancia"
+      },
+      {
+        name: "Caterpie",
+        image: "img/poke4.jpg",
+        hover: "img/poke4.jpg",
+        lore: "Conocido por su cuerpo verde de oruga, su gran apetito y su habilidad para trepar."
+      },
+      {
+        name: "Charmander",
+        image: "img/poke5.jpg",
+        hover: "img/poke5.jpg",
+        lore: "Su fuerza vital está ligada a la llama; su intensidad indica su estado de salud y si se apaga, Charmander muere."
+      },
+      {
+        name: "Metapod",
+        image: "img/poke6.jpg",
+        hover: "img/poke6.jpg",
+        lore: "Se asemeja a una crisálida con un caparazón extremadamente duro que protege su cuerpo blando, el cual se encuentra en metamorfosis."
+      },
+      {
+        name: "Pikachu",
+        image: "img/poke7.jpg",
+        hover: "img/poke7.jpg",
+        lore: "Voy a poner dibujos mios pero no los tengo a la mano"
+      },
+    ];
+
+    function showCharacter(index) {
+      const char = characters[index];
+      document.getElementById("charName").textContent = char.name;
+      document.getElementById("charImage").src = char.image;
+      document.getElementById("charLore").textContent = char.lore;
+
+      document.querySelectorAll(".character").forEach(c => c.classList.remove("selected"));
+      document.querySelector(`[data-id='${index}']`).classList.add("selected");
+    }
+
+    const grid = document.getElementById("characterGrid");
+    characters.forEach((c, i) => {
+      const card = document.createElement("div");
+      card.className = "column is-one-third";
+      card.innerHTML = `
+        <div class="character card has-text-centered" data-id="${i}" onclick="showCharacter(${i})">
+          <div class="card-image" style="position: relative;">
+            <figure class="image is-square">
+              <img src="${c.image}" alt="${c.name}">
+              <img src="${c.hover}" class="hover" alt="${c.name} hover">
+            </figure>
+          </div>
+          <div class="card-content">${c.name}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Mostrar primer personaje por defecto
+    showCharacter(0);
+  </script>
+</body>
+</html>
