@@ -1,404 +1,353 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>League of Legends | Pantalla de carga</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="css/prueba1.css" />
-  </head>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantalla de Carga - League of Legends</title>
 
-  <body>
-    <div class="pantalla_de_carga">
-      <div class="oscurito"></div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-      <!-- Fila superior -->
-      <div class="columns is-centered pt-6 pb-5">
-        <div class="column">
-          <div class="cardup_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/Caitlyn.jpg" alt="Caitlyn" />
-            </figure>
-            <p class="nombre_campeon">Caitlyn</p>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Beaufort for LoL', serif;
+      background-image: url('img/BACK.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: white;
+      overflow-y: auto; /* Permite scroll vertical */
+    }
 
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/caitcircular.jpg" />
-                </figure>
-                </div>
-            
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
+    .container-flex {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+    }
 
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa1.jpg" />
-                </figure>
-                </div>
+    .overlay {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 20px;
+      width: 95%;
+      max-width: 1300px;
+    }
 
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema1.jpg" />
-                </figure>
-                </div>
+    .columns {
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
 
-                <p class="descripcion">alguien</p>
+    .campeon {
+      text-align: center;
+      color: white;
+      position: relative;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.4));
+      border: 2px solid #b38b2f;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
 
-          </div>
-        </div>
-        </div>
+    .campeon img.splash {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 6px;
+      border-bottom: 2px solid #b38b2f;
+    }
 
-        <div class="column">
-          <div class="cardup_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/jayce.jpg" alt="Jayce" />
-            </figure>
-            <p class="nombre_campeon">Jayce</p>
+    .nombre-campeon {
+      color: gold;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+      text-shadow: 1px 1px 5px black;
+    }
 
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/jaycecircular.jpg" />
-                </figure>
-                </div>
+    .detalles {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 6px;
+    }
 
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
+    .alineacion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
 
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa2.jpg" />
-                </figure>
-                </div>
+    .hechizos {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema2.jpg" />
-                </figure>
-                </div>
+    .hechizos img {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border: 1px solid #b38b2f;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+    }
 
-                <p class="descripcion">quiteme</p>
+    .icono-invocador img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #b38b2f;
+      box-shadow: 0 0 10px rgba(255,215,0,0.5);
+    }
 
+    .runa img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #b38b2f;
+      box-shadow: 0 0 8px rgba(255,215,0,0.4);
+    }
+
+    .nombre-usuario {
+      color: violet;
+      font-size: 14px;
+      margin-top: 6px;
+      text-shadow: 1px 1px 3px black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-flex">
+    <div class="overlay">
+
+      <!-- FILA 1 -->
+      <div class="columns is-centered">
+
+        <!-- Warwick -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL1.jpg" alt="Warwick">
+          <div class="nombre-campeon">Feral Warwick</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON1.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA1.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">cherwood</div>
           </div>
         </div>
-
-        <div class="column">
-          <div class="cardup_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/Lilia.jpg" alt="Lilia" />
-            </figure>
-            <p class="nombre_campeon">Lilia</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/liliacircular.jpeg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa1.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema2.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">las</p>
-
+        <!-- Lee Sin -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL2.jpg" alt="Lee Sin">
+          <div class="nombre-campeon">Lee Sin</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON2.jpg" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA2.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">qLxHarlan</div>
           </div>
         </div>
-
-        <div class="column">
-          <div class="cardup_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/qnsabe.jpg" alt="qnsabe" />
-            </figure>
-            <p class="nombre_campeon">Cassiopeia</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/4circular.jpeg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa1.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema1.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">ilusiones</p>
-
+        <!-- Veigar -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL3.jpg" alt="Veigar">
+          <div class="nombre-campeon">Veigar</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON3.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA3.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">HowarqLqLq</div>
           </div>
         </div>
-
-        <div class="column">
-          <div class="cardup_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado.avif" alt="qnsabe1" />
-            </figure>
-            <p class="nombre_campeon">Kayn</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/5circular.jpg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa3.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema3.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">de</p>
-
+        <!-- Ashe -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL4.jpg" alt="Ashe">
+          <div class="nombre-campeon">Ashe</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON4.jpg" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA1.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">Oppohetelar</div>
           </div>
         </div>
+        <!-- Kindred -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL5.jpg" alt="Kindred">
+          <div class="nombre-campeon">Kindred</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON5.jpg" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA4.webp" alt="Runa">
+              </div>
+            </div>
+            <div class="nombre-usuario">CallMeCallMeStar</div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Fila inferior -->
-      <div class="columns is-centered pb-6 pt-6">
-        <div class="column">
-          <div class="carddown_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado2.avif" alt="qnsabe2" />
-            </figure>
-            <p class="nombre_campeon">Kai'Sa</p>
+      <!-- FILA 2 -->
+      <div class="columns is-centered">
 
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/6circular.jpeg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa2.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema3.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">que</p>
-
+        <!-- Ezreal -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL7.jpg" alt="Ezreal">
+          <div class="nombre-campeon">Ezreal</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON6.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA3.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">EzraPlayer</div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="carddown_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado3.avif" alt="qnsabe3" />
-            </figure>
-            <p class="nombre_campeon">Karma</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/7circular.jpg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa2.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema3.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">mi crush</p>
-
+        <!-- Nasus -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL8.jpg" alt="Nasus">
+          <div class="nombre-campeon">Nasus</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON6.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA5.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">DogWarrior</div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="carddown_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado4.avif" alt="qnsabe4"/>
-            </figure>
-            <p class="nombre_campeon">Ivern</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/8circular.jpg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa3.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema1.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">me haga</p>
-
+        <!-- Ryze -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL9.jpg" alt="Ryze">
+          <div class="nombre-campeon">Ryze</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON6.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA3.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">MagicRyze</div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="carddown_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado5.avif" alt="qnsabe5"/>
-            </figure>
-            <p class="nombre_campeon">Janna</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/9circular.jpg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa3.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema2.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">caso</p>
-
+        <!-- Alistar -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL99.jpg" alt="Alistar">
+          <div class="nombre-campeon">Alistar</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON6.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA5.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">TankMaster</div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="carddown_campeones">
-            <div class="tarjetita_entera">
-            <figure class="image is-3by5">
-              <img src="img/robado6.avif" alt="qnsabe6"/>
-            </figure>
-            <p class="nombre_campeon">Ekko</p>
-
-                <div class="enmarcados"> 
-                <figure class="image is-32x32">
-                <img class="is-rounded" src="img/10circular.jpg" />
-                </figure>
-                </div>
-
-                <div class="poderes pl-3">
-                <figure>
-                <img src="img/rectangulo.jpg" />
-                </figure>
-                </div>
-
-                <div class="runas"> 
-                <figure class="image is-24x24">
-                <img class="is-rounded" src="img/runa2.jpg" />
-                </figure>
-                </div>
-
-                <div class="gemas"> 
-                <figure class="image is-18x18">
-                <img class="is-rounded" src="img/gema2.jpg" />
-                </figure>
-                </div>
-
-                <p class="descripcion">por favor</p>
-
+        <!-- Galio -->
+        <div class="column is-one-fifth campeon">
+          <img class="splash" src="img/LOL10.jpg" alt="Galio">
+          <div class="nombre-campeon">Galio</div>
+          <div class="detalles">
+            <div class="alineacion">
+              <div class="hechizos">
+                <img src="img/HECHIZO1.png" alt="Hechizo 1">
+                <img src="img/HECHIZO1.1.png" alt="Hechizo 2">
+              </div>
+              <div class="icono-invocador">
+                <img src="img/ICON6.png" alt="Icono Invocador">
+              </div>
+              <div class="runa">
+                <img src="img/RUNA5.webp" alt="Runa">
+              </div>
             </div>
+            <div class="nombre-usuario">GalioKing</div>
           </div>
         </div>
+
       </div>
+
     </div>
-  </body>
+  </div>
+</body>
 </html>
