@@ -11,7 +11,7 @@
 
     body {
       background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
-      background-image: url('img/fondo.jpg'); /* ← pon aquí tu ilustración */
+      background-image: url('img/PAPEL.jpg'); 
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -46,14 +46,14 @@
       width: 100%;
     }
 
-    /* EFECTO ILUMINADO AL PASAR */
+    /*lucesita*/
     .character:hover {
       border-color: #eed00c;
       box-shadow: 0 0 15px #eed00c, inset 0 0 10px #eed00c;
       transform: translateY(-5px);
     }
 
-    /* IMAGEN NORMAL Y HOVER */
+    /* imagenes */
     .character img.hover {
       position: absolute;
       top: 0;
@@ -65,7 +65,7 @@
       opacity: 1;
     }
 
-    /* SELECCIONADO */
+    /* selección*/
     .character.selected {
       border-color: #fbf893;
       box-shadow: 0 0 20px #fbf893, inset 0 0 10px #fbf893;
@@ -80,7 +80,7 @@
       color: #ddd;
     }
 
-    /* DETALLE DEL PERSONAJE */
+    /* personajes */
     #characterDetail {
       background: rgba(5, 217, 224, 0.471);
       border: 2px solid #30f7f4;
@@ -110,7 +110,7 @@
     }
 
     #charLore {
-      margin-top: auto; /* mueve la descripción hacia abajo */
+      margin-top: auto; 
       padding-bottom: 1rem;
       font-size: 1.1rem;
       color: #000000;
@@ -119,13 +119,12 @@
 </head>
 <body>
   <section class="section">
-    <h1 class="title has-text-centered">CHOOSE YOUR CHARACTER</h1>
+    <h1 class="title has-text-centered">CHOOSE YOUR FORANEO</h1>
 
     <div class="columns">
       <!-- GRID DE PERSONAJES -->
       <div class="column is-half">
         <div class="columns is-multiline" id="characterGrid">
-          <!-- Se genera dinámicamente -->
         </div>
       </div>
 
@@ -145,46 +144,46 @@
   <script>
     const characters = [
       {
-        name: "Bulbasaur",
-        image: "img/poke1.jpg",
-        hover: "img/poke1.jpg",
-        lore: "Lleva una semilla en el lomo que crece con él. Absorbe energía de la luz solar."
+        name: "Moni",
+        image: "img/Foraneo1.png",
+        hover: "img/Foraneo2.png",
+        lore: "Inmune al pollo congelado de hace un mes"
       },
       {
-        name: "Squirtle",
-        image: "img/poke2.jpg",
-        hover: "img/poke2.jpg",
-        lore: "Vamo a calmarno'"
+        name: "Yo mera",
+        image: "img/Foraneo3.png",
+        hover: "img/Foraneo4.png",
+        lore: "Obtiene 10 puntos de vida por cada hora que duerme"
       },
       {
-        name: "Butterfree",
-        image: "img/poke3.jpg",
-        hover: "img/poke3.jpg",
-        lore: "Ama el néctar de las flores y puede localizar prados floridos a kilómetros de distancia"
+        name: "Morusita",
+        image: "img/Foraneo5.png",
+        hover: "img/Foraneo6.png",
+        lore: "No saca su albúm"
       },
       {
-        name: "Caterpie",
-        image: "img/poke4.jpg",
-        hover: "img/poke4.jpg",
-        lore: "Conocido por su cuerpo verde de oruga, su gran apetito y su habilidad para trepar."
+        name: "Ileana",
+        image: "img/Foraneo7.png",
+        hover: "img/Foraneo8.png",
+        lore: "Estudiante de psicología, sabe leer mentes"
       },
       {
-        name: "Charmander",
-        image: "img/poke5.jpg",
-        hover: "img/poke5.jpg",
-        lore: "Su fuerza vital está ligada a la llama; su intensidad indica su estado de salud y si se apaga, Charmander muere."
+        name: "Fátima",
+        image: "img/Foraneo9.png",
+        hover: "img/Foraneo10.png",
+        lore: "Otra estudiante de gastro, cuenta la leyenda que tiene su propio chefsito ayudandola"
       },
       {
-        name: "Metapod",
-        image: "img/poke6.jpg",
-        hover: "img/poke6.jpg",
-        lore: "Se asemeja a una crisálida con un caparazón extremadamente duro que protege su cuerpo blando, el cual se encuentra en metamorfosis."
+        name: "Valeria",
+        image: "img/Foraneo11.png",
+        hover: "img/Foraneo12.png",
+        lore: "Estudiante de gastronomia, probablemente te golpee con un sartén"
       },
       {
-        name: "Pikachu",
-        image: "img/poke7.jpg",
-        hover: "img/poke7.jpg",
-        lore: "Voy a poner dibujos mios pero no los tengo a la mano"
+        name: "Chewbacca",
+        image: "img/Foraneo13.png",
+        hover: "img/Foraneo14.png",
+        lore: "Un ser todo omnipotente"
       },
     ];
 
